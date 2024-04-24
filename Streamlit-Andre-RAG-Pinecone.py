@@ -244,7 +244,7 @@ if text:
         #ElevelLabs API Call and Return
         text = str(response['answer'])
         cleaned = re.sub(r'\*.*?\*', '', text)
-        audio = client2.generate(text=cleaned, voice="Sofia", model="eleven_turbo_v2")
+        audio = client2.generate(text=cleaned, voice="Andre", model="eleven_turbo_v2")
         # Create single bytes object from the returned generator.
         data = b"".join(audio)
         ##send data to audio tag in HTML
@@ -269,7 +269,7 @@ if user_prompt := st.chat_input("What is up?"):
         #ElevelLabs API Call and Return
         text = str(response['answer'])
         cleaned = re.sub(r'\*.*?\*', '', text)
-        audio = client2.generate(text=cleaned, voice="Sofia", model="eleven_turbo_v2")
+        audio = client2.generate(text=cleaned, voice="Andre", model="eleven_turbo_v2")
         # Create single bytes object from the returned generator.
         data = b"".join(audio)
         ##send data to audio tag in HTML
