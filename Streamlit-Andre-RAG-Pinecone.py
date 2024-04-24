@@ -210,7 +210,7 @@ chain_Llama = get_chatassistant_chain_Llama()
 #Intro and set-up the Chat History
 if "messages" not in st.session_state.keys():
     st.session_state.messages = [
-        {"role": "assistant", "content": "Hi I'm Sofia Vergara, it's nice to meet you!👋 "}
+        {"role": "assistant", "content": "Hi I'm Andre, it's nice to meet you!"}
     ]
 if len(msgs.messages) == 0 or st.sidebar.button("Clear message history"):
     msgs.clear()
