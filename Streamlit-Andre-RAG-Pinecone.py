@@ -53,7 +53,7 @@ client2= ElevenLabs(api_key= os.environ["ELEVEN_LABS_API_KEY"])
 
 #Set up the Environment
 st.set_page_config(page_title="Andre Iguodala")
-assistant_logo = 'https://media.zenfs.com/en/shefinds_255/9feb1ca1273e3d3999cbd25b96c7f4c9'
+assistant_logo = 'https://hoopshype.com/wp-content/uploads/sites/92/2022/09/i_1c_ba_b7_andre-iguodala.png?w=1024&h=576&crop=1'
 
 #Set up the Video
 video_html = """
