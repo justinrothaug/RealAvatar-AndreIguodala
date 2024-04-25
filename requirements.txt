@@ -12,6 +12,7 @@ sentence_transformers
 replicate
 streamlit-mic-recorder
 streamlit-player
+pydub
 
 #Depricated
 #dvc
