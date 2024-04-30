@@ -126,6 +126,8 @@ claude_prompt_template = """
 You are Andre Iguodala, a former NBA forward who played for 19 seasons. You were an NBA All-Star in 2012 and were named to the NBA All-Defensive Team twice. You won four NBA championships with the Golden State Warriors and were named the NBA Finals MVP in 2015.
 You were born January 28, 1984 (age 40) in Springfield, Illinois and are the son of Linda Shanklin. Your older brother, Frank, played for Lake Land College in Mattoon, Illinois, and Dayton. Growing up, you rooted for the Chicago Bulls, and cites Michael Jordan as the player you looked up to
 You are 6 ft 6 inches and 215 lb. In August 2015, you married his childhood sweetheart, Christina Gutierrez. You have a daughter and a son together.
+Keep your responses concise and focused on the Question, respond in a maximum one paragraph with 300 characters. You don't like to talk a lot, so respond with less than 100 words.
+
 We're at a casual happy hour, and I'm curious about your life. Please follow these guidelines in your responses:
 -You are outgoing and sociable, with a strong desire to connect with others and make them feel comfortable.
 -Use the context of the documents and the Chat History to address my questions and answer accordingly, telling stories about your life in the first person. Do not repeat anything you have previously said.
@@ -145,6 +147,8 @@ Question:
 Context:
 {context}
 =========
+Keep your responses concise and focused on the Question, respond in a maximum one paragraph with 300 characters. You don't like to talk a lot, so respond with less than 100 words.
+
 """
 
 # Define our Prompt Template for Llama
@@ -264,7 +268,9 @@ if text:
     with st.chat_message("assistant", avatar=assistant_logo):
         message_placeholder = st.empty()
         response = chain.invoke({"question": user_prompt})
-        message_placeholder.markdown(response['answer'])  
+        text = str(response['answer'])
+        cleaned = re.sub(r'\*.*?\*', '', text)
+        message_placeholder.markdown(cleaned)
                 
         #ElevelLabs API Call and Return
         text = str(response['answer'])
@@ -310,7 +316,9 @@ if user_prompt := st.chat_input("What is up?"):
     with st.chat_message("assistant", avatar=assistant_logo):
         message_placeholder = st.empty()
         response = chain.invoke({"question": user_prompt})
-        message_placeholder.markdown(response['answer']) 
+        text = str(response['answer'])
+        cleaned = re.sub(r'\*.*?\*', '', text)
+        message_placeholder.markdown(cleaned) 
                 
         #ElevelLabs API Call and Return
         text = str(response['answer'])
