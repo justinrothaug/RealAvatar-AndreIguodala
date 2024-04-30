@@ -213,7 +213,7 @@ def get_chatassistant_chain_Llama():
     embeddings = OpenAIEmbeddings()
     vectorstore = PineconeVectorStore(index_name="001-realavatar-andre", embedding=embeddings)
     set_debug(True)
-    llm_Llama = ChatPerplexity(temperature=.8, pplx_api_key=PPLX_API_KEY, model="llama-3-70b-instruct")
+    llm_Llama = ChatPerplexity(temperature=0, pplx_api_key=PPLX_API_KEY, model="llama-3-70b-instruct")
     chain_Llama=ConversationalRetrievalChain.from_llm(llm=llm_Llama, retriever=vectorstore.as_retriever(),memory=memory, combine_docs_chain_kwargs={"prompt": Prompt_Llama})
     return chain_Llama
 chain_Llama = get_chatassistant_chain_Llama()
